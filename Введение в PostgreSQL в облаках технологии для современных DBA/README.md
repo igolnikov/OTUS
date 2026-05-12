@@ -23,7 +23,6 @@
 пока мы не сделали commit во второй сессии изменений нет
 `testdb=# SELECT * FROM shipments;`
 ` id | product_name | quantity | destination`
-`----+--------------+----------+-------------`
 `  1 | bananas      |     1000 | Euro`
 `  2 | coffee       |      500 | USA`
 `(2 rows)`
@@ -31,7 +30,6 @@
 после commita в из первой сессии во вторую пришли изменения
 `testdb=# SELECT * FROM shipments;`
 ` id | product_name | quantity | destination`
-`----+--------------+----------+-------------`
 `  1 | bananas      |     1000 | Euro`
 `  2 | coffee       |      500 | USA`
 `  3 | sugar        |      300 | Asia`
