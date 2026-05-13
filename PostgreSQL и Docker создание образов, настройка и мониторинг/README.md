@@ -14,6 +14,7 @@
 ### установить Docker:
 
 ​```
+
 Add Docker's official GPG key:
 
 sudo apt update
@@ -36,6 +37,7 @@ EOF
 sudo apt update
 
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 ​```
 
 ### установить PostgreSQL в Docker контейнере:
