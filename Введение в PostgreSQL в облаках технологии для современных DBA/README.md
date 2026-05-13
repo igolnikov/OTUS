@@ -33,7 +33,7 @@ testdb=# SELECT * FROM shipments;
 (2 rows)
 ```
 
-после commita в из первой сессии во вторую пришли изменения
+после commita из первой сессии во вторую пришли изменения
 testdb=# SELECT * FROM shipments;
 ```
  id | product_name | quantity | destination
