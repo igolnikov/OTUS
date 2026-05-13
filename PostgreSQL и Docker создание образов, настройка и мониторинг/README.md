@@ -48,7 +48,9 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ### Создайте каталог /var/lib/postgres для хранения данных:
 
 ```
-mkdir /var/lib/postgresql/data
+mkdir /var/lib/postgres
+sudo chown -R 999:999 /var/lib/postgres
+sudo chmod -R 700 /var/lib/postgres
 ```
 
 ### Разверните контейнер с PostgreSQL 14, смонтировав в него /var/lib/postgres:
@@ -59,7 +61,7 @@ docker run -d \
   --network pg_otus \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_USER=postgres \
-  -v pg_otus_data:/var/lib/postgresql/data \
+  -v /var/lib/postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:14
 ```
@@ -131,7 +133,7 @@ docker run -d \
   --network pg_otus \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_USER=postgres \
-  -v pg_otus_data:/var/lib/postgresql/data \
+  -v /var/lib/postgres:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:14
 
