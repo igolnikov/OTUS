@@ -102,16 +102,16 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 /dev/sda1        23G  1.5G   20G   8% /
 /dev/sdb        3.9G  1.1M  3.7G   1% /mnt/data
-```
+
 mkdir -p /mnt/data/main/
 rsync -avx /var/lib/postgresql/18/main/ /mnt/data/main/
 
 chown -R postgres:postgres /mnt/data/main
 chmod 700 /mnt/data/main
-
+```
 
 ### Настройте PostgreSQL для работы с новым диском.
-
+```
 systemctl stop postgresql - останавливаем службу перед изменением конфигурации
 
 nano /etc/postgresql/18/main/postgresql.conf - меняем "data_directory" на новое место базы
@@ -133,7 +133,7 @@ systemctl status postgresql - проверяем статус
 May 13 21:15:21 postgresql-home-01 systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...
 May 13 21:15:21 postgresql-home-01 systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.
 
-
+```
 ### Проверьте, что данные сохранились и доступны.
 
 ```
