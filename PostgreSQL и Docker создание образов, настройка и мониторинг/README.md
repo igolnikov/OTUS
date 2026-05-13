@@ -6,7 +6,7 @@
 - Создайте инстанс с Debian 13;
 - Установить Docker;
 - Создайте каталог /var/lib/postgres для хранения данных;
-- Разверните контейнер с PostgreSQL 14, смонтировав в него /var/lib/postgres;
+- Разверните контейнер с PostgreSQL 14, смонтировав в него /var/lib/postgresql/data;
 - Разверните контейнер с клиентом PostgreSQL;
 - Подключитесь из контейнера с клиентом к контейнеру с сервером и создайте таблицу с данными о перевозках;
 - Подключитесь к контейнеру с сервером с ноутбука или компьютера;
@@ -48,7 +48,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ### Создайте каталог /var/lib/postgres для хранения данных:
 
 ```
-mkdir /var/lib/postgres
+mkdir /var/lib/postgresql/data
 ```
 
 ### Разверните контейнер с PostgreSQL 14, смонтировав в него /var/lib/postgres:
