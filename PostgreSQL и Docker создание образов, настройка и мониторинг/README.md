@@ -138,5 +138,23 @@ docker run -d \
 ```
 ### Проверьте, что данные остались на месте;
 ```
+docker exec -it pg_client psql -h pg_server -U postgres
+Password for user postgres:
+
+postgres=# SELECT * FROM shipments;
+
+ id | product_name | quantity | destination
+----+--------------+----------+-------------
+  1 | bananas      |     1000 | Europe
+  2 | bananas      |     1500 | Asia
+  3 | bananas      |     2000 | Africa
+  4 | coffee       |      500 | USA
+  5 | coffee       |      700 | Canada
+  6 | coffee       |      300 | Japan
+  7 | sugar        |     1000 | Europe
+  8 | sugar        |      800 | Asia
+  9 | sugar        |      600 | Africa
+ 10 | sugar        |      400 | USA
+(10 rows)
 
 ```
