@@ -132,6 +132,17 @@ postgres=#
 
 ### Удалите контейнер с сервером и создайте его заново;
 ```
+docker stop pg_server
+docker rm pg_server
+
+docker run -d \
+  --name pg_server \
+  --network pg_otus \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_USER=postgres \
+  -v pg_otus_data:/var/lib/postgres \
+  -p 5432:5432 \
+  postgres:14
 
 ```
 ### Проверьте, что данные остались на месте;
