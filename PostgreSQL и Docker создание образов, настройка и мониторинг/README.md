@@ -59,7 +59,7 @@ docker run -d \
   --network pg_otus \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_USER=postgres \
-  -v pg_otus_data:/var/lib/postgres \
+  -v pg_otus_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:14
 ```
@@ -140,7 +140,7 @@ docker run -d \
   --network pg_otus \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_USER=postgres \
-  -v pg_otus_data:/var/lib/postgres \
+  -v pg_otus_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:14
 
