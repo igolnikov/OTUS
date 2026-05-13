@@ -77,7 +77,8 @@ docker exec -it pg_client psql -h pg_server -U postgres
 
 Password for user postgres:
 
-postgres=# CREATE TABLE shipments (
+postgres=#
+    CREATE TABLE shipments (
     id serial PRIMARY KEY,
     product_name text,
     quantity int,
@@ -97,17 +98,7 @@ INSERT INTO shipments(product_name, quantity, destination) VALUES('sugar', 400, 
 
 -- Проверяем
 SELECT * FROM shipments;
-CREATE TABLE
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
-INSERT 0 1
+
  id | product_name | quantity | destination
 ----+--------------+----------+-------------
   1 | bananas      |     1000 | Europe
