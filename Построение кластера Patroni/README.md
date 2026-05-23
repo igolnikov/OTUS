@@ -136,7 +136,7 @@ frontend postgres_read_frontend
     mode tcp
     default_backend postgres_backend
 ```
-![Альтернативный текст](img/screenshot.png)
+![Альтернативный текст](img/screenshot2.png)
 
 ### Проверьте отказоустойчивость кластера, имитируя сбой на одном из узлов.
 
