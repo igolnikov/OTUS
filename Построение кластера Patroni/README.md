@@ -144,4 +144,29 @@ frontend postgres_read_frontend
 
 ### Дополнительно: Настройте бэкапы с использованием WAL-G или pg_probackup.
 
+`sudo -u postgres /usr/bin/pg_probackup-18 add-instance -B /mnt/data/ -D /var/lib/postgresql/18/main --instance=patroni_cluster`
 
+`sudo -u postgres /usr/bin/pg_probackup-18 backup -B /mnt/data/ --instance=patroni_cluster -b FULL --stream`
+```
+INFO: Backup start, pg_probackup version: 2.5.16, instance: patroni_cluster, backup ID: TFIFD8, backup mode: FULL, wal mode: STREAM, remote: false, compress-algorithm: none, compress-level: 1
+INFO: This PostgreSQL instance was initialized with data block checksums. Data block corruption will be detected
+WARNING: Current PostgreSQL role is superuser. It is not recommended to run pg_probackup under superuser.
+INFO: Database backup start
+INFO: wait for pg_backup_start()
+INFO: Wait for WAL segment /mnt/data/backups/patroni_cluster/TFIFD8/database/pg_wal/00000006000000000000000A to be streamed
+INFO: PGDATA size: 30MB
+INFO: Current Start LSN: 0/A000028, TLI: 6
+INFO: Start transferring data files
+INFO: Data files are transferred, time elapsed: 0
+INFO: wait for pg_stop_backup()
+INFO: pg_stop backup() successfully executed
+INFO: stop_lsn: 0/A000188
+INFO: Getting the Recovery Time from WAL
+INFO: Syncing backup files to disk
+INFO: Backup files are synced, time elapsed: 0
+INFO: Validating backup TFIFD8
+INFO: Backup TFIFD8 data files are valid
+INFO: Backup TFIFD8 resident size: 62MB
+INFO: Backup TFIFD8 completed
+```
+![Альтернативный текст](img/screenshot5.png)
