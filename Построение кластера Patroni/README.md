@@ -95,6 +95,48 @@ tags:
 
 ### Настройте HAProxy для балансировки нагрузки.
 
+`cat /etc/haproxy/haproxy.cfg`
+
+```
+global
+    log /dev/log local0
+    maxconn 5000
+    user haproxy
+    group haproxy
+
+defaults
+    log global
+    mode tcp
+    timeout connect 5s
+    timeout client 30m
+    timeout server 30m
+
+listen stats
+    bind *:7000
+    mode http
+    stats enable
+    stats uri /stats
+
+# Простой бэкенд без проверок
+backend postgres_backend
+    mode tcp
+    balance roundrobin
+    server Patroni-01 172.34.35.156:5432 check
+    server Patroni-02 172.34.35.155:5432 check
+    server Patroni-03 172.34.35.154:5432 check
+
+frontend postgres_frontend
+    bind *:5432
+    mode tcp
+    default_backend postgres_backend
+
+# Дополнительный порт для чтения
+frontend postgres_read_frontend
+    bind *:5433
+    mode tcp
+    default_backend postgres_backend
+```
+![Альтернативный текст](img/screenshot.png)
 
 ### Проверьте отказоустойчивость кластера, имитируя сбой на одном из узлов.
 
