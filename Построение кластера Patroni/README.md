@@ -7,6 +7,27 @@
 ![Альтернативный текст](img/screenshot.png)
 
 ### Разверните HA-кластер PostgreSQL с использованием Patroni.
+
+`cat /etc/default/etcd`
+```
+ETCD_NAME=patroni-01
+ETCD_INITIAL_CLUSTER="patroni-01=http://172.34.35.156:2380,patroni-02=http://172.34.35.155:2380,patroni-03=http://172.34.35.154:2380"
+ETCD_INITIAL_CLUSTER_TOKEN="pg-cluster"
+ETCD_INITIAL_CLUSTER_STATE="new"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://172.34.35.156:2380"
+ETCD_DATA_DIR="/var/lib/etcd/postgresql"
+ETCD_LISTEN_PEER_URLS="http://0.0.0.0:2380"
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379,http://127.0.0.1:2379"
+ETCD_ADVERTISE_CLIENT_URLS="http://172.34.35.156:2379"
+```
+`etcdctl member list`
+```
+etcdctl member list
+21a5e9219e45b423, started, patroni-03, http://172.34.35.154:2380, http://172.34.35.154:2379, false
+2b78dcfd28c49bdf, started, patroni-01, http://172.34.35.156:2380, http://172.34.35.156:2379, false
+8519938179d3a5c1, started, patroni-02, http://172.34.35.155:2380, http://172.34.35.155:2379, false
+```
+
 ![Альтернативный текст](img/screenshot1.png)
 
 `cat /etc/patroni/patroni.yml`
