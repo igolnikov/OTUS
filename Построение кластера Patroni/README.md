@@ -7,7 +7,7 @@
 ![Альтернативный текст](img/screenshot.png)
 
 ### Разверните HA-кластер PostgreSQL с использованием Patroni.
-![Альтернативный текст](img/screenshot.png)
+![Альтернативный текст](img/screenshot2.png)
 
 `cat /etc/patroni/patroni.yml`
 
