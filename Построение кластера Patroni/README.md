@@ -28,6 +28,8 @@ etcdctl member list
 8519938179d3a5c1, started, patroni-02, http://172.34.35.155:2380, http://172.34.35.155:2379, false
 ```
 
+`patronictl -c /etc/patroni/patroni.yml list`
+
 ![Альтернативный текст](img/screenshot1.png)
 
 `cat /etc/patroni/patroni.yml`
