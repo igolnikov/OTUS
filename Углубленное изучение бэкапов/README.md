@@ -183,6 +183,7 @@ sudo systemctl stop postgresql
 sudo rm -rf /var/lib/postgresql/18/main/*
 ```
 
+
 ```
 sudo -u postgres pg_probackup-18 restore \
   -B /mnt/data/backups \
