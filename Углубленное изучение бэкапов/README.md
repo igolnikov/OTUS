@@ -5,31 +5,37 @@
 
 ### 1. Настройте бэкапы PostgreSQL с использованием WAL-G, pg_probackup или любого другого аналогичного ПО для базы данных "Лояльность оптовиков".
 
-Установи нужные утилиты:
+1.1 Установи нужные утилиты:
+
 ```
 apt update
 apt install -y gpg wget
 ```
-Добавь GPG-ключ репозитория:
+1.2 Добавь GPG-ключ репозитория:
+
 ```
 wget -qO - https://repo.postgrespro.ru/pg_probackup/keys/GPG-KEY-PG-PROBACKUP \
   > /etc/apt/trusted.gpg.d/pg_probackup.asc
 ```
-Добавь репозиторий для Debian 13:
+1.3 Добавь репозиторий для Debian 13:
+
 ```
 . /etc/os-release
 echo "deb [arch=amd64] https://repo.postgrespro.ru/pg_probackup/deb $VERSION_CODENAME main-$VERSION_CODENAME" > /etc/apt/sources.list.d/pg_probackup.list
 ```
-Обнови индексы пакетов:
+1.4 Обнови индексы пакетов:
 `apt update`
 
-Установка пакета:
+1.5 Установка пакета:
+
 `apt install -y pg-probackup-18`
 
-Для удобства добаляем в local bin:
-ln -s /usr/bin/pg_probackup-18 /usr/local/bin/pg_probackup
+1.6 Для удобства добаляем в local bin:
 
-Проверяем версию:
+`ln -s /usr/bin/pg_probackup-18 /usr/local/bin/pg_probackup`
+
+1.7 Проверяем версию:
+
 ```
 pg_probackup --version
 pg_probackup 2.5.16 (PostgreSQL 18.1)
