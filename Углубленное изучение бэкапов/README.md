@@ -113,7 +113,7 @@ root@postgresql-home-01:~# ip a
        valid_lft 1160sec preferred_lft 935sec
     inet6 fe80::6b24:5cd8:98e2:1b76/64 scope link
        valid_lft forever preferred_lft forever
-       
+
 root@postgresql-home-01:~# du -h /mnt/data/
 4.0K    /mnt/data/backups/backups/patroni_cluster/TFLLBF/database
 12K     /mnt/data/backups/backups/patroni_cluster/TFLLBF
@@ -176,6 +176,33 @@ root@postgresql-home-01:~# du -h /mnt/data/
 
 ```
 
-### 3. Проверьте, что данные восстановлены корректно.
+**2.8** *Восстанавливаем все что мы забрали на новом месте.*
 
+`sudo systemctl stop postgresql`
+`sudo rm -rf /var/lib/postgresql/18/main/*`
+```
+sudo -u postgres pg_probackup-18 restore \
+  -B /mnt/data/backups \
+  --instance=patroni_cluster \
+  -D /var/lib/postgresql/18/main \
+  --backup-id=TFLLQT \
+  --restore-command="cp /mnt/data/backups/wal/%f %p"
+
+INFO: Validating backup TFLLQT
+INFO: Backup TFLLQT data files are valid
+INFO: Backup TFLLQT WAL segments are valid
+INFO: Backup TFLLQT is valid.
+INFO: Restoring the database from backup TFLLQT
+INFO: Start restoring backup files. PGDATA size: 62MB
+INFO: Backup files are restored. Transfered bytes: 62MB, time elapsed: 0
+INFO: Restore incremental ratio (less is better): 100% (62MB/62MB)
+INFO: Syncing restored files to disk
+INFO: Restored backup files are synced, time elapsed: 9s
+INFO: Restore of backup TFLLQT completed.
+```
+`sudo chown -R postgres:postgres /var/lib/postgresql/18/main`
+`sudo systemctl start postgresql`
+
+### 3. Проверьте, что данные восстановлены корректно.
+![Альтернативный текст](img/screenshot.png)
 ### 4. Дополнительно: Снимите бэкап под нагрузкой с реплики.
