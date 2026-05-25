@@ -178,8 +178,11 @@ root@postgresql-home-01:~# du -h /mnt/data/
 
 **2.8** *Восстанавливаем все что мы забрали на новом месте.*
 
-`sudo systemctl stop postgresql`
-`sudo rm -rf /var/lib/postgresql/18/main/*`
+```
+sudo systemctl stop postgresql
+sudo rm -rf /var/lib/postgresql/18/main/*
+```
+
 ```
 sudo -u postgres pg_probackup-18 restore \
   -B /mnt/data/backups \
