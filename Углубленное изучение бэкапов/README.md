@@ -66,8 +66,7 @@ ssh-keygen -t rsa -b 4096 -N "" -f /root/.ssh/id_rsa
 ssh-copy-id postgres@172.34.35.156
 ```
 
-**2.3** *Создаю пароль postgres на сервере Patroni-01 
-         откуда буду забирать резервную копию и меняю pg_hba.conf:*
+**2.3** *Создаю пароль postgres на сервере Patroni-01 откуда буду забирать резервную копию и меняю pg_hba.conf:*
 
 `ALTER USER postgres PASSWORD 'backup123';`
 
@@ -84,7 +83,7 @@ host    replication     postgres        172.34.35.151/32        scram-sha-256
 
 ```
 
-**2.4** *Создаю фаил с паролем и объявляю instance*
+**2.4** *Создаю фаил с паролем чтобы скрипт не спрашивал его при запуске*
 
 ```
 sudo -u postgres touch /var/lib/postgresql/.pgpass
@@ -93,11 +92,17 @@ sudo -u postgres nano /var/lib/postgresql/.pgpass
 172.34.35.156:5432:*:postgres:backup123
 ```
 
+**2.5** *Объявляю instance**
+
 `pg_probackup-18 backup -B /mnt/data/backups --instance=patroni_cluster -b FULL --stream --remote-host=172.34.35.156 --remote-user=postgres -U postgres`
 
-**2.5** *Запускую первый full backup*
+**2.6** *Запускую первый full backup*
 
 `sudo -u postgres pg_probackup-18 backup   -B /mnt/data/backups   --instance=patroni_cluster   -b FULL   --stream   --remote-host=172.34.35.156   --remote-user=postgres   -h 172.34.35.156   -U postgres   -d postgres`
+
+**2.7** *Проверяем, что наш backup перешёл на наш сервер.*
+
+![Альтернативный текст](img/screenshot.png)
 
 ### 3. Проверьте, что данные восстановлены корректно.
 
