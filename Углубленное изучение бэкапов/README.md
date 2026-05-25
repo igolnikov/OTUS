@@ -86,10 +86,12 @@ host    replication     postgres        172.34.35.151/32        scram-sha-256
 
 **2.4** *Создаю фаил с паролем и объявляю instance*
 
-`sudo -u postgres touch /var/lib/postgresql/.pgpass`
-`sudo -u postgres chmod 0600 /var/lib/postgresql/.pgpass`
-`sudo -u postgres nano /var/lib/postgresql/.pgpass`
-`172.34.35.156:5432:*:postgres:backup123`
+```
+sudo -u postgres touch /var/lib/postgresql/.pgpass
+sudo -u postgres chmod 0600 /var/lib/postgresql/.pgpass
+sudo -u postgres nano /var/lib/postgresql/.pgpass
+172.34.35.156:5432:*:postgres:backup123
+```
 
 `pg_probackup-18 backup -B /mnt/data/backups --instance=patroni_cluster -b FULL --stream --remote-host=172.34.35.156 --remote-user=postgres -U postgres`
 
