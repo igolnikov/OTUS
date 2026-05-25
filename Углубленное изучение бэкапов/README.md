@@ -102,7 +102,7 @@ sudo -u postgres nano /var/lib/postgresql/.pgpass
 
 **2.7** *Проверяем, что наш backup перешёл на наш сервер.*
 
-![Альтернативный текст](img/screenshot.png)
+![Альтернативный текст](img/screenshot1.png)
 
 ### 3. Проверьте, что данные восстановлены корректно.
 
