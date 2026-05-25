@@ -51,7 +51,8 @@ pg_probackup 2.5.16 (PostgreSQL 18.1)
 `sudo -u postgres /usr/bin/pg_probackup-18 backup -B /mnt/data/ --instance=patroni_cluster -b FULL --stream`
 
 **1.10** *Проверяем состояние завершённой задачи:*
-[Альтернативный текст](img/screenshot.png)
+
+![Альтернативный текст](img/screenshot.png)
 
 ### 2. Восстановите данные на другом кластере, чтобы убедиться, что бэкапы работают.
 
