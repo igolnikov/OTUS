@@ -204,5 +204,7 @@ INFO: Restore of backup TFLLQT completed.
 `sudo systemctl start postgresql`
 
 ### 3. Проверьте, что данные восстановлены корректно.
+
 ![Альтернативный текст](img/screenshot1.png)
+
 ### 4. Дополнительно: Снимите бэкап под нагрузкой с реплики.
