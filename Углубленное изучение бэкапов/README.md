@@ -42,11 +42,19 @@ pg_probackup --version
 pg_probackup 2.5.16 (PostgreSQL 18.1)
 ```
 
+**1.8** *Инициализируем новый инстанс резервного копирования:*
+
+`sudo -u postgres /usr/bin/pg_probackup-18 add-instance -B /mnt/data/ -D /var/lib/postgresql/18/main --instance=patroni_cluster`
+
+**1.9** *Запускаем полное резервное копирование PostgreSQL:*
+
+`sudo -u postgres /usr/bin/pg_probackup-18 backup -B /mnt/data/ --instance=patroni_cluster -b FULL --stream`
+
+**1.10** *Проверяем состояние завершённой задачи:*
+[Альтернативный текст](img/screenshot.png)
+
 ### 2. Восстановите данные на другом кластере, чтобы убедиться, что бэкапы работают.
 
 ### 3. Проверьте, что данные восстановлены корректно.
 
 ### 4. Дополнительно: Снимите бэкап под нагрузкой с реплики.
-
-![Альтернативный текст](img/screenshot.png)
-![Альтернативный текст](img/screenshot1.png)
