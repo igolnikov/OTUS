@@ -24,6 +24,7 @@ wget -qO - https://repo.postgrespro.ru/pg_probackup/keys/GPG-KEY-PG-PROBACKUP \
 echo "deb [arch=amd64] https://repo.postgrespro.ru/pg_probackup/deb $VERSION_CODENAME main-$VERSION_CODENAME" > /etc/apt/sources.list.d/pg_probackup.list
 ```
 1.4 Обнови индексы пакетов:
+
 `apt update`
 
 1.5 Установка пакета:
