@@ -223,7 +223,7 @@ client_min_messages = 'ERROR'
 geqo = on                           	 # Генетический оптимизатор
 geqo_effort = 10                    	 # Максимальное усилие
 geqo_pool_size = 1000               	 # Большой пул для оптимизации
-geqo_generations = 1000 		 # Много поколений
+geqo_generations = 1000                  # Много поколений
 
 #быстрый автоваккум
 autovacuum = on
