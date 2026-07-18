@@ -200,10 +200,10 @@ wal_writer_delay = 100ms                 # Чаще сбрасываем WAL (н
 
 checkpoint_timeout = 30min          	 # Контрольные точки реже
 checkpoint_completion_target = 0.99      # Почти все время на запись
-max_wal_size = 32GB               	 # Храним много WAL
+max_wal_size = 32GB                      # Храним много WAL
 min_wal_size = 8GB
 
-max_parallel_workers = 16          	 # Использовать все ядра CPU
+max_parallel_workers = 16                # Использовать все ядра CPU
 max_parallel_workers_per_gather = 8  	 # 8 процессов на запрос
 max_worker_processes = 16
 parallel_leader_participation = on
