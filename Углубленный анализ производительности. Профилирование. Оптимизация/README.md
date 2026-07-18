@@ -187,13 +187,13 @@ checkpoint_completion_target = 0.9
 
 ```
 fsync = off                              # ОТКЛЮЧАЕМ принудительную запись на диск
-synchronous_commit = off        	 # НЕ ЖДЕМ подтверждения записи в WAL
+synchronous_commit = off                 # НЕ ЖДЕМ подтверждения записи в WAL
 full_page_writes = off                   # НЕ ПИШЕМ полные страницы в WAL (риск повреждения)
 
-shared_buffers = 4GB              	 # Для сервера с 8GB RAM (50% памяти)
-effective_cache_size = 6GB      	 # 75% от RAM
+shared_buffers = 4GB                     # Для сервера с 8GB RAM (50% памяти)
+effective_cache_size = 6GB               # 75% от RAM
 work_mem = 256MB                         # Агрессивно для сортировок/хешей
-maintenance_work_mem = 2GB     		 # Для VACUUM и индексов
+maintenance_work_mem = 2GB               # Для VACUUM и индексов
 
 wal_buffers = 64MB                       # Крупный буфер для WAL
 wal_writer_delay = 100ms                 # Чаще сбрасываем WAL (но не ждем)
