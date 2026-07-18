@@ -51,10 +51,10 @@ sudo -u postgres pgbench -c 4 -T 60 -P 5 iivdb
 sudo -u postgres pgbench -c 4 -T 60 -N iivdb
 
 # Сохранить результаты теста
-sudo -u postgres pgbench -c 4 -T 60 testdb > /tmp/pgbench_result.txt
+sudo -u postgres pgbench -c 4 -T 60 iivdb > /tmp/pgbench_result.txt
 
 # Или с подробным выводом
-sudo -u postgres pgbench -c 4 -T 60 -P 5 testdb | tee /tmp/pgbench_result.txt
+sudo -u postgres pgbench -c 4 -T 60 -P 5 iivdb | tee /tmp/pgbench_result.txt
 ```
 
 
