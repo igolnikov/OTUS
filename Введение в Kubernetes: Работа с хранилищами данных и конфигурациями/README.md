@@ -4,7 +4,6 @@
 
 ### Цель:
 
-- понять ключевые компоненты Kubernetes, такие как ConfigMap, Secrets и Persistent Volumes;научиться работать с ЯО;
 - понять ключевые компоненты Kubernetes, такие как ConfigMap, Secrets и Persistent Volumes;
 - освоить использование ConfigMap и Secrets для управления конфигурациями и секретами;
 - научиться работать с Helm для упрощения управления приложениями в Kubernetes;
